@@ -1,7 +1,7 @@
 #dventure of code
 
 ## Solutions for 25 questions via [adentofcode](https://adventofcode.com) using TDD in PHP
-	### To read any quiz you can visit 
+		 To read any quiz you can visit 
 		- https://adventofcode/${year}/day/${day}
 
 ##### Examples:
