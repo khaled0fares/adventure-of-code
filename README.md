@@ -6,4 +6,4 @@
 
 ##### Examples:
 * [https://adventofcode.com/2016/day/1](https://adventofcode.com/2016/day/1)
-* [https://adventofcode.com/2016/day/2](https://adventofcode.com/2016/day/2)
+* [https://adventofcode.com/2015/day/2](https://adventofcode.com/2015/day/2)
