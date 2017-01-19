@@ -5,6 +5,7 @@ class Elves {
 
 	private $listOfDimensions;
 	private $neededAreaOfPaper  = 0;
+	private $neededRibbonOfAllBows  = 0;
 
 	public function __construct($dimensions)
 	{
@@ -30,6 +31,15 @@ class Elves {
 			$this->neededAreaOfPaper +=  $box->getAreaOfPaperWrapper();
 		}	
 		return $this->neededAreaOfPaper;
+	}
+
+	public function neededRibbonOfAllBows()
+	{
+		foreach( $this->listOfDimensions as $dimension) {
+			$box =  new Box($dimension);
+			$this->neededRibbonOfAllBows +=  $box->getNeededRibbonOfBow();
+		}	
+		return $this->neededRibbonOfAllBows;
 	}
 }
 

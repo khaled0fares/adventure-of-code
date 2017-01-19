@@ -6,6 +6,8 @@ class Box{
 	private $height;
 	private $area;
 	private $littleExtraPaper;
+	private $smallestPerimeter;
+	private $neededRibbonOfBow;
 
 	public function __construct($dimensions)
 	{
@@ -41,17 +43,47 @@ class Box{
 
 	public function getSmallestArea()
 	{
-		$firstSurface =  $this->getWidth() * $this->getLength();
-		$secondSurface =  $this->getHeight() * $this->getWidth();
-		$thirdSurface =  $this->getLength() * $this->getHeight();
+		$firstSurface =  $this->getAreaOfSurface($this->getWidth(), $this->getLength());
+		$secondSurface =  $this->getAreaOfSurface($this->getHeight(), $this->getWidth());
+		$thirdSurface =  $this->getAreaOfSurface($this->getLength(), $this->getHeight());
 
 		$this->littleExtraPaper  = min([$firstSurface, $secondSurface, $thirdSurface]);
 
 		return $this->littleExtraPaper;
 	}
+	public function getSmallestPerimeter()
+	{
+		$perimeterOne = $this->getperimeterOfSurface($this->getWidth(), $this->getLength());
+		$perimeterTwo = $this->getperimeterOfSurface($this->getHeight(), $this->getWidth());
+		$perimeterThree = $this->getperimeterOfSurface($this->getLength(), $this->getHeight());
 
+		$this->smallestPerimeter  = min([$perimeterOne, $perimeterTwo, $perimeterThree]);
+		return $this->smallestPerimeter;
+	}
+	
+	protected function getAreaOfSurface($dimension1, $dimension2)
+	{
+		return $dimension1 * $dimension2;
+	}
+
+	protected function getPerimeterOfSurface($dimension1, $dimension2)
+	{
+		return 2 * ($dimension1 + $dimension2);
+	}	
 	public function getAreaOfPaperWrapper()
 	{
 		return $this->getArea() + $this->getSmallestArea(); 
+	}
+
+	public function getAreaOfBow()
+	{
+		$this->areaOfBow =  $this->getLength() * $this->getWidth() * $this->getHeight();
+		return $this->areaOfBow;
+	}
+
+	public function getNeededRibbonOfBow()
+	{
+		$this->neededRibbonOfBow = $this->getsmallestPerimeter() + $this->getAreaOfBow();
+		return $this->neededRibbonOfBow;
 	}
 }

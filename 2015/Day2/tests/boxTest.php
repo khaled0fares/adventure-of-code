@@ -51,11 +51,31 @@ class BoxTest extends PHPUnit_Framework_TestCase{
 		$this->assertEquals(12,$box2->getSmallestArea());
 	}
 
+		
 	/** @test */
 	public function it_should_return_area_of_paper_wrapper()
 	{
 		$box1 = new Box("2x3x4");
 
 		$this->assertEquals(58,$box1->getAreaOfPaperWrapper());
+	}
+	
+	/** @test */
+	public function it_should_return_smallestPerimeter()
+	{
+		$box1 = new Box("2x3x4");
+
+		$this->assertEquals(10,$box1->getSmallestPerimeter());
+		
+		$box2 = new Box("1x2x4");
+		$this->assertEquals(6,$box2->getSmallestPerimeter());
+	}
+
+	/** @test */
+	public function it_should_getAreaOfBow()
+	{
+		$box1 = new Box("2x3x4");
+
+		$this->assertEquals(24,$box1->getAreaOfBow());
 	}
 }
