@@ -4,7 +4,7 @@ class visitor
 {
 	private $input;
 	private $locations = [];
-	private $homes =  1;
+	private $homes =  0;
 
 	public function __construct($dirtyInput)
 	{
