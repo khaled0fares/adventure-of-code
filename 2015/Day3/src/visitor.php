@@ -1,10 +1,10 @@
 <?php
-require __DIR__."/gps.php";
+require_once __DIR__."/gps.php";
 class visitor
 {
-	private $input;
-	private $locations = [];
-	private $homes =  0;
+	protected $input;
+	protected $locations = [];
+	protected $homes =  0;
 
 	public function __construct($dirtyInput)
 	{
@@ -35,14 +35,14 @@ class visitor
 		return $this->locations;	
 	}
 
-	private function addLocation($index)
+	protected function addLocation($index)
 	{
 		$movements  = $this->atState($index);
 		$gps =  new GPS($movements); 
 		return $gps->getCurrentLocation();	
 	}
 
-	private function exist($location)
+	protected function exist($location)
 	{
 		return in_array($location, $this->locations); 
 	}
